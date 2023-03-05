@@ -29,10 +29,10 @@ const displayTools = tools => {
       </div>
       <div class="card-footer">
         <h6 class="card-title">${tool.name}</h6>
-        <div class="d-flex justify-content-between">
+        <div class="d-flex justify-content-between align-items-center">
         
         <small class="text-muted"> <span> <ion-icon name="calendar-outline"> </ion-icon></span> ${tool.published_in}</small>
-        <ion-icon  name="arrow-forward-circle-outline"></ion-icon>
+        <button class="btn btn-danger h-1"><ion-icon  name="arrow-forward-circle-outline"></ion-icon></button>
         </div>
       </div>
     </div>`;
