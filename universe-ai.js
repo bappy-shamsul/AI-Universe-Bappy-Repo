@@ -4,8 +4,8 @@
 //     .then(data => console.log(data))
 // }
 
-const loadInformation = async () => {
-    const url = `https://openapi.programming-hero.com/api/ai/tools`
+const loadInformation = async(searchText) => {
+    const url = `https://openapi.programming-hero.com/api/ai/tools?search=${searchText}`
     const res = await fetch(url)
     const data = await res.json()
     displayTools(data.data);
@@ -15,7 +15,8 @@ const loadInformation = async () => {
 const displayTools = tools => {
     console.log(tools);
     const toolContainer = document.getElementById('tool-container');
-  
+    toolContainer.textContent = '';
+
     tools.tools.forEach(tool => {
         const toolDiv = document.createElement('div');
         toolDiv.classList.add('col');
@@ -29,7 +30,8 @@ const displayTools = tools => {
       <div class="card-footer">
         <h6 class="card-title">${tool.name}</h6>
         <div class="d-flex justify-content-between">
-        <small class="text-muted">${tool.published_in}</small>
+        
+        <small class="text-muted"> <span> <ion-icon name="calendar-outline"> </ion-icon></span> ${tool.published_in}</small>
         <ion-icon  name="arrow-forward-circle-outline"></ion-icon>
         </div>
       </div>
@@ -38,4 +40,9 @@ const displayTools = tools => {
     })
 }
 
+document.getElementById('btn-search').addEventListener('click', function(){
+  const searchField = document.getElementById('field-search');
+  const searchText = searchField.value;
+  loadInformation(searchText);
+})
 loadInformation();
