@@ -14,8 +14,9 @@ const loadInformation = async () => {
 
 const displayTools = tools => {
     console.log(tools);
-    const toolContainer = document.getElementById('tool-container')
-    tools.forEach(tool => {
+    const toolContainer = document.getElementById('tool-container');
+  
+    tools.tools.forEach(tool => {
         const toolDiv = document.createElement('div');
         toolDiv.classList.add('col');
         toolDiv.innerHTML = `
@@ -23,11 +24,12 @@ const displayTools = tools => {
       <img src="${tool.image}" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title">Features</h5>
-        console.log(tool.features)
-        <p class="card-text">${tool.features}</p>
+        <p class="card-text"> <ol> <li>${tool.features[0]} </li> <li>${tool.features[1]}</li> <li>${tool.features[2]}  </li>  </li> </ol> </p>
       </div>
       <div class="card-footer">
-        <small class="text-muted">Last updated 3 mins ago</small>
+        <h6 class="card-title">${tool.name}</h6>
+        <small class="text-muted"><ion-icon name="calendar-clear-outline"></ion-icon>${tool.published_in}</small>
+        <ion-icon  class="mr-3" name="arrow-forward-circle-outline"></ion-icon>
       </div>
     </div>`;
     toolContainer.appendChild(toolDiv);
