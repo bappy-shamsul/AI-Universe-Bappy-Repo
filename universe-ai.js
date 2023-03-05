@@ -28,8 +28,10 @@ const displayTools = tools => {
       </div>
       <div class="card-footer">
         <h6 class="card-title">${tool.name}</h6>
-        <small class="text-muted"><ion-icon name="calendar-clear-outline"></ion-icon>${tool.published_in}</small>
-        <ion-icon  class="mr-3" name="arrow-forward-circle-outline"></ion-icon>
+        <div class="d-flex justify-content-between">
+        <small class="text-muted">${tool.published_in}</small>
+        <ion-icon  name="arrow-forward-circle-outline"></ion-icon>
+        </div>
       </div>
     </div>`;
     toolContainer.appendChild(toolDiv);
